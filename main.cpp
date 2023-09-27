@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <fstream>
 
 using namespace std;
 int main()
@@ -95,8 +96,11 @@ int main()
             return -1;
 		}
 
-
-
+	  ofstream fichierlog("fichierlog.txt");
+	  string operation = to_string(val1) +  to_string(operateur) + to_string(val2);
+	  cout << operation;
+	  fichierlog(operation);
+      fichierlog.close();
   }
    return 0;
 }

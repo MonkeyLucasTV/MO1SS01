@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <fstream>
 
 using namespace std;
 int main()
@@ -66,31 +67,38 @@ int main()
 
 		case '+':
 			sum = val1+val2;
-			cout << sum;
+			cout << sum << '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 
 			break;
 		case '-':
 			sum = val1-val2;
-			cout << sum;
+			cout << sum<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 			break;
 		case '*':
 			sum = val1*val2;
-			cout << sum;
+			cout << sum<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 			break;
 		case '/':
 			sum = val1/val2;
-			cout << sum;
+			cout << sum<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 			break;
 		case '%':
 			sum = val1 % val2;
-			cout << sum;
+			cout << sum<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 			break;
 		default:
 			cout << "mauvais operateur";
+            return -1;
 		}
 
-
+	  ofstream fichierlog("fichierlog.txt");
+	  string operation = (string) val1 +  string(operateur) + (string) val2
 
   }
-
+   return 0;
 }
