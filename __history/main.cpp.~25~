@@ -67,32 +67,31 @@ int main()
 		case '+':
 			sum = val1+val2;
 			cout << sum << '\n';
-			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR";
 
 			break;
 		case '-':
 			sum = val1-val2;
 			cout << sum<< '\n';
-			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR";
 			break;
 		case '*':
 			sum = val1*val2;
 			cout << sum<< '\n';
-			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR";
 			break;
 		case '/':
 			sum = val1/val2;
 			cout << sum<< '\n';
-			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR";
 			break;
 		case '%':
 			sum = val1 % val2;
 			cout << sum<< '\n';
-			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR";
 			break;
 		default:
 			cout << "mauvais operateur";
-            return -1;
 		}
 
 

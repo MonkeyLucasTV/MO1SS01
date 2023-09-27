@@ -92,7 +92,6 @@ int main()
 			break;
 		default:
 			cout << "mauvais operateur";
-            return -1;
 		}
 
 
