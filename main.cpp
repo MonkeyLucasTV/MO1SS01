@@ -2,6 +2,7 @@
 #include <cmath>
 #include <string>
 #include <fstream>
+#include <time.h>
 
 using namespace std;
 int main()
@@ -67,39 +68,42 @@ int main()
      cout << "salut";
     ofstream fichierlog;
 		fichierlog.open("journal.log", ios_base::app);
-		fichierlog<<val1<<operateur<<val2;
-	;
+		time_t t = time(0);
+		tm* now = localtime(&t);
+		fichierlog << now->tm_mday << "/" << (now->tm_mon + 1) << "/" << (now->tm_year + 1900)
+		<< " " << now-> tm_hour<< ":"<<now-> tm_min<<":"<<now -> tm_sec<< " " <<val1<< " "<<operateur<< " "<<val2 ;
+
 		switch(operateur){
 
 		case '+':
 			sum = val1+val2;
 			cout << sum << '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
-			fichierlog<<"="<<sum<<'\n';
+			fichierlog<<" = "<<sum<<'\n';
 			break;
 		case '-':
 			sum = val1-val2;
 			cout << sum<< '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
-			fichierlog<<"="<<sum<<'\n';
+			fichierlog<<" = "<<sum<<'\n';
 			break;
 		case '*':
 			sum = val1*val2;
 			cout << sum<< '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
-            fichierlog<<"="<<sum<<'\n';
+			fichierlog<<" = "<<sum<<'\n';
 			break;
 		case '/':
 			sum = val1/val2;
 			cout << sum<< '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
-            fichierlog<<"="<<sum<<'\n';
+			fichierlog<<" = "<<sum<<'\n';
 			break;
 		case '%':
 			sum = val1 % val2;
 			cout << sum<< '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
-            fichierlog<<"="<<sum<<'\n';
+			fichierlog<<" = "<<sum<<'\n';
 			break;
 		default:
 			cout << "mauvais operateur";
@@ -107,8 +111,10 @@ int main()
 		}
 
 
-	fichierlog.close();
 
+
+
+	  fichierlog.close();
 
 
 
