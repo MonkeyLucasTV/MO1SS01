@@ -58,47 +58,54 @@ int main()
 	int val2;
 	char operateur;
 	int x = 1;
-	 while (x==1){
 
-		cout << "Dites votre truc" << '\n';
-		cin >> val1 >> operateur >> val2;
-
+	cout << "Dites votre truc" << '\n';
+	cin >> val1 >> operateur >> val2;
+     cout << "salut";
+    ofstream fichierlog;
+		fichierlog.open("journal.log", ios_base::app);
+		fichierlog<<val1<<operateur<<val2;
+	;
 		switch(operateur){
 
 		case '+':
 			sum = val1+val2;
 			cout << sum << '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
-
+			fichierlog<<"="<<sum<<'\n';
 			break;
 		case '-':
 			sum = val1-val2;
 			cout << sum<< '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+			fichierlog<<"="<<sum<<'\n';
 			break;
 		case '*':
 			sum = val1*val2;
 			cout << sum<< '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+            fichierlog<<"="<<sum<<'\n';
 			break;
 		case '/':
 			sum = val1/val2;
 			cout << sum<< '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+            fichierlog<<"="<<sum<<'\n';
 			break;
 		case '%':
 			sum = val1 % val2;
 			cout << sum<< '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
+            fichierlog<<"="<<sum<<'\n';
 			break;
 		default:
 			cout << "mauvais operateur";
             return -1;
 		}
 
-	  ofstream fichierlog("fichierlog.txt");
-	  string operation = (string) val1 +  (string) operateur + (string) val2
 
-  }
+	fichierlog.close();
+    system("Pause");
+
    return 0;
 }

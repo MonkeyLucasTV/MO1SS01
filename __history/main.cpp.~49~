@@ -58,11 +58,11 @@ int main()
 	int val2;
 	char operateur;
 	int x = 1;
-	 while (x==1){
 
-		cout << "Dites votre truc" << '\n';
-		cin >> val1 >> operateur >> val2;
+	cout << "Dites votre truc" << '\n';
+	cin >> val1 >> operateur >> val2;
 
+	;
 		switch(operateur){
 
 		case '+':
@@ -96,10 +96,12 @@ int main()
             return -1;
 		}
 
-	  ofstream fichierlog("fichierlog.txt");
-	  string operation = to_string(val1) +  to_string(operateur) + to_string(val2);
-	  cout << operation;
-      fichierlog(operation);
-  }
+	cout << "salut";
+    ofstream fichierlog;
+		fichierlog.open("journal.log", ios_base::app);
+		fichierlog<<val1<<operateur<<val2;
+	fichierlog.close();
+    system("Pause");
+
    return 0;
 }
