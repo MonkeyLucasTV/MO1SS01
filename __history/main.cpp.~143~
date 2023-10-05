@@ -12,7 +12,7 @@ using namespace std;
 int main()
 {
 
-
+std::string trameChiffree = trame;
 
 
 
@@ -87,13 +87,12 @@ int main()
 	std::string operation = ss.str();
     cout <<ss.str()<<endl;
 	string msg;
-    string trame;
 
 	IRLigne ligne;
-		ligne.ModifierMessage(ss.str());
-        ligne.Trame();
+		ligne.ModifierMessage(operation);
+		string trame = ligne.Trame();
 	IRClientUDP client;
-		client.OuvrirLaSocketDeCommunication("172.20.21.157",4009);
+		client.OuvrirLaSocketDeCommunication("172.20.21.157",4000);
 		client.EnvoyerUnMessage(trame);
 		client.FermerLaSocket();
 

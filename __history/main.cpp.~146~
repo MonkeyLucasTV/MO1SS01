@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <cmath>
 #include <string>
 #include <fstream>
@@ -20,6 +20,8 @@ void chiffrement(std::string message, std::string & messageChiffre)
 using namespace std;
 int main()
 {
+
+std::string trameChiffree = trame;
 
 
 
@@ -88,7 +90,7 @@ int main()
 
 
 
-   // CrÃ©ation de la chaine de caractÃ¨re Ã  envoyer Ã  l'afficheur
+   // Création de la chaine de caractère à envoyer à l'afficheur
 
 	std::stringstream ss;
 	ss << val1 << " " << operateur << " " << val2 << " = " << sum;
@@ -96,19 +98,18 @@ int main()
     cout <<ss.str()<<endl;
 	string msg;
 
-      IRLigne ligne;
-		ligne.ModifierMessage(operation);
-		string trame = ligne.Trame();
 
      std::string trameChiffree = trame;
 	chiffrement(trame, trameChiffree);
 	 std::cout << "TRAME CHIFFREE : " << trameChiffree << std::endl;
 
 
-
+	IRLigne ligne;
+		ligne.ModifierMessage(operation);
+		string trame = ligne.Trame();
 	IRClientUDP client;
 		client.OuvrirLaSocketDeCommunication("172.20.21.157",4000);
-		client.EnvoyerUnMessage(trameChiffree);
+		client.EnvoyerUnMessage(trame);
 		client.FermerLaSocket();
 
        }

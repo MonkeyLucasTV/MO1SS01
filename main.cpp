@@ -8,10 +8,18 @@
 #include "IRJournalLumineux.h"
 #include <sstream>
 
+void chiffrement(std::string message, std::string & messageChiffre)
+{
+ std::string cle = "CyberSecurite";
+ for(int i = 0 ; i<message.length() ; i++)
+ {
+ messageChiffre[i] = message[i] ^ cle[i%cle.length()];
+ }
+}
+
 using namespace std;
 int main()
 {
-
 
 
 
@@ -88,12 +96,19 @@ int main()
     cout <<ss.str()<<endl;
 	string msg;
 
-	IRLigne ligne;
+      IRLigne ligne;
 		ligne.ModifierMessage(operation);
 		string trame = ligne.Trame();
+
+     std::string trameChiffree = trame;
+	chiffrement(trame, trameChiffree);
+	 std::cout << "TRAME CHIFFREE : " << trameChiffree << std::endl;
+
+
+
 	IRClientUDP client;
 		client.OuvrirLaSocketDeCommunication("172.20.21.157",4000);
-		client.EnvoyerUnMessage(trame);
+		client.EnvoyerUnMessage(trameChiffree);
 		client.FermerLaSocket();
 
        }

@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <cmath>
 #include <string>
 #include <fstream>
@@ -20,6 +20,8 @@ void chiffrement(std::string message, std::string & messageChiffre)
 using namespace std;
 int main()
 {
+
+std::string trameChiffree = trame;
 
 
 
@@ -88,7 +90,7 @@ int main()
 
 
 
-   // CrÃ©ation de la chaine de caractÃ¨re Ã  envoyer Ã  l'afficheur
+   // Création de la chaine de caractère à envoyer à l'afficheur
 
 	std::stringstream ss;
 	ss << val1 << " " << operateur << " " << val2 << " = " << sum;
