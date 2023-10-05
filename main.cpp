@@ -3,6 +3,10 @@
 #include <string>
 #include <fstream>
 #include <time.h>
+#include "IRClientUDP.h"
+#include "IRLigne.h"
+#include "IRJournalLumineux.h"
+#include <sstream>
 
 using namespace std;
 int main()
@@ -10,47 +14,6 @@ int main()
 
 
 
-
-/*   do{
-
-       cout << "Dites votre truc" << '\n';
-		cin >> val1 >> operateur >> val2;
-
-
-	if (operateur == '+') {
-		int sum = val1+val2;
-		cout << sum;
-		system("Pause");
-		return 0;
-	}
-	else if (operateur == '/') {
-		int sum = val1/val2;
-		cout << sum;
-		system("Pause");
-		return 0;
-	}
-	else if (operateur == '-') {
-		int sum = val1-val2;
-		cout << sum;
-		system("Pause");
-		return 0;
-	}
-	else if (operateur == '*') {
-		int sum = val1*val2;
-		cout << sum;
-		system("Pause");
-		return 0;
-	}
-	else {
-		cout << "mauvais operateur";
-		return -1;
-	}
-	system("Pause");
-	cin.get();
-
-	  }while (x > 0);
-
-   */
 
 
 	int choix;
@@ -60,18 +23,17 @@ int main()
 	char operateur;
 	int x = 1;
 
-   while (x>0){
 
+ while(true){
 
-	cout << "Dites votre truc" << '\n';
+      cout << "Dites votre truc" << '\n';
 	cin >> val1 >> operateur >> val2;
-     cout << "salut";
-    ofstream fichierlog;
-		fichierlog.open("journal.log", ios_base::app);
-		time_t t = time(0);
-		tm* now = localtime(&t);
-		fichierlog << now->tm_mday << "/" << (now->tm_mon + 1) << "/" << (now->tm_year + 1900)
-		<< " " << now-> tm_hour<< ":"<<now-> tm_min<<":"<<now -> tm_sec<< " " <<val1<< " "<<operateur<< " "<<val2 ;
+
+   ofstream fichierlog;
+	fichierlog.open("journal.log", ios_base::app);
+	time_t t = time(0);
+	tm* now = localtime(&t);
+	fichierlog << now->tm_mday << "/" << (now->tm_mon + 1) << "/" << (now->tm_year + 1900) << " " << now-> tm_hour<< ":"<<now-> tm_min<<":"<<now -> tm_sec<< " " <<val1<< " "<<operateur<< " "<<val2 ;
 
 		switch(operateur){
 
@@ -83,25 +45,25 @@ int main()
 			break;
 		case '-':
 			sum = val1-val2;
-			cout << sum<< '\n';
+			cout << sum << '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 			fichierlog<<" = "<<sum<<'\n';
 			break;
 		case '*':
 			sum = val1*val2;
-			cout << sum<< '\n';
+			cout << sum << '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 			fichierlog<<" = "<<sum<<'\n';
 			break;
 		case '/':
 			sum = val1/val2;
-			cout << sum<< '\n';
+			cout << sum << '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 			fichierlog<<" = "<<sum<<'\n';
 			break;
 		case '%':
 			sum = val1 % val2;
-			cout << sum<< '\n';
+			cout << sum << '\n';
 			cout << "FIN DU PROGRAMME CALCULATRICE SANS ERREUR"<< '\n';
 			fichierlog<<" = "<<sum<<'\n';
 			break;
@@ -110,14 +72,42 @@ int main()
             return -1;
 		}
 
+       fichierlog.close();
 
 
 
 
-	  fichierlog.close();
 
 
 
-   }
-   return 0;
-   }
+   // Création de la chaine de caractère à envoyer à l'afficheur
+
+	std::stringstream ss;
+	ss << val1 << " " << operateur << " " << val2 << " = " << sum;
+	std::string operation = ss.str();
+    cout <<ss.str()<<endl;
+	string msg;
+
+	IRLigne ligne;
+		ligne.ModifierMessage(operation);
+		string trame = ligne.Trame();
+	IRClientUDP client;
+		client.OuvrirLaSocketDeCommunication("172.20.21.157",4000);
+		client.EnvoyerUnMessage(trame);
+		client.FermerLaSocket();
+
+       }
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
