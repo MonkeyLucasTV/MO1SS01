@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/09/28 09:07:33.000.742,=C:\Users\lpokrywa\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2023/09/28 09:07:33.000.757,=C:\Users\lpokrywa\Desktop\M01SS01\main.cpp</Transaction>
+    <Transaction>2023/09/28 09:12:53.000.557,C:\Users\lpokrywa\Documents\Embarcadero\Studio\Projets\Project1.cbproj=C:\Users\lpokrywa\Desktop\M01SS01\Project1.cbproj</Transaction>
+    <Transaction>2023/09/28 09:12:53.000.541,C:\Users\lpokrywa\Documents\Embarcadero\Studio\Projets\Project1PCH1.h=C:\Users\lpokrywa\Desktop\M01SS01\Project1PCH1.h</Transaction>
+    <Transaction>2023/10/05 09:20:16.583,=C:\Users\lpokrywa\Desktop\M01SS01\IRClientUDP.cpp</Transaction>
+    <Transaction>2023/10/05 09:20:16.630,=C:\Users\lpokrywa\Desktop\M01SS01\IRJournalLumineux.cpp</Transaction>
+    <Transaction>2023/10/05 09:20:16.661,=C:\Users\lpokrywa\Desktop\M01SS01\IRLigne.cpp</Transaction>
+    <Transaction>2023/10/05 09:20:16.708,=C:\Users\lpokrywa\Desktop\M01SS01\IRServeurUDP.cpp</Transaction>
+    <Transaction>2023/10/05 09:20:16.755,=C:\Users\lpokrywa\Desktop\M01SS01\PortSerieAfficheur.cpp</Transaction>
+  </Transactions>
+</BorlandProject>
